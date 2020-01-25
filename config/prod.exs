@@ -16,7 +16,7 @@ use Mix.Config
 config :app, AppWeb.Endpoint,
   load_from_system_env: true,
   http: [port: {:system, "PORT"}],
-  url: [scheme: "https", host: "fathomless-river-37569.herokuapp.com", port: 443],
+  url: [scheme: "https", host: "hobby-dev-elixir.herokuapp.com", port: 443],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
