@@ -1,17 +1,17 @@
-# Configure your environment
+## Configure your environment
 
 ```
 $ chmod +x run.sh
 $ docker-compose build
 ```
 
-# Create the project
+## Create the project
 
 ```
 $ docker-compose run --rm web mix phx.new .
 ```
 
-# Configure your database DEV and TEST
+## Configure your database DEV and TEST
 
 ```
 config :app, App.Repo,
@@ -37,7 +37,7 @@ config :app, App.Repo,
 $ docker-compose run web mix ecto.create
 ```
 
-# Spin it up with `docker-compose up web`
+## Spin it up with `docker-compose up web`
 
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
