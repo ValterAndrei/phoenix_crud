@@ -17,7 +17,7 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 [Link](https://hobby-dev-elixir.herokuapp.com/)
 
-# Restore locally from dump
+## Restore locally from dump
 ```
 $ ./dump_db_from_heroku
 ```
