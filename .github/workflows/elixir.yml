@@ -10,7 +10,7 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         otp: [22.x]
-        elixir: [latest]
+        elixir: [1.9.x]
         node: [12.x]
       
     services:
