@@ -17,3 +17,9 @@ config :app, App.Repo,
   database: "app_test",
   hostname: "db",
   pool: Ecto.Adapters.SQL.Sandbox
+
+if System.get_env("GITHUB_ACTIONS") do
+  config :app, App.Repo,
+    username: "postgres",
+    password: "postgres"
+end
