@@ -4,44 +4,33 @@ on: push
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
-    name: OTP ${{ matrix.otp }} | Elixir ${{ matrix.elixir }} | Node ${{ matrix.node }} | OS ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        otp: [22.x]
-        elixir: [1.9.x]
-        node: [12.x]
+
+    runs-on: ubuntu-latest
+
+    container:
+      image: elixir:latest
+      env:
+        MIX_ENV: test
       
     services:
       postgres:
         image: postgres
-        ports: ['5432:5432']
+        ports:
+          - 5432:5432
         env:
           POSTGRES_USER: postgres
-          POSTGRES_HOST_AUTH_METHOD: trust
+          POSTGRES_HOST_AUTH_METHOD: 'trust'
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
-      - uses: actions/checkout@v1.0.0
-      - uses: actions/setup-elixir@v1.0.0
-        with:
-          otp-version: ${{ matrix.otp }}
-          elixir-version: ${{ matrix.elixir }}
-      - uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node }}
-
-      - name: Install dependencies
-        run: |
-          mix local.rebar --force
-          mix local.hex --force
-          mix deps.get
-          yarn --cwd assets install
-
-      - name: Run tests
-        run: |
-          mix test
-        env:
-          MIX_ENV: test
-          DB_HOST: postgres
+    - uses: actions/checkout@v1
+    - name: Install Dependencies
+      run: |
+        mix local.rebar --force
+        mix local.hex --force
+        mix deps.get
+    - name: Run Tests
+      run: |
+        mix test
+      env:
+        DB_HOST: postgres
