@@ -4,13 +4,14 @@ on: push
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-
-    container:
-      image: elixir:latest
-      env:
-        MIX_ENV: test
+    runs-on: ${{ matrix.os }}
+    name: OTP ${{ matrix.otp }} | Elixir ${{ matrix.elixir }} | Node ${{ matrix.node }} | OS ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        otp: [22.x]
+        elixir: [latest]
+        node: [12.x]
       
     services:
       postgres:
