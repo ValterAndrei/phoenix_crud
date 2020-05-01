@@ -8,7 +8,7 @@ services:
         source: .
         target: /app
     ports:
-      - "4000:4000"
+      - '4000:4000'
     depends_on:
       - db
     command:
@@ -16,3 +16,5 @@ services:
 
   db:
     image: postgres
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: 'trust'
