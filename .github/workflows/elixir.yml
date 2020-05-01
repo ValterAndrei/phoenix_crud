@@ -41,8 +41,6 @@ jobs:
 
       - name: Run tests
         run: |
-          mix compile --warnings-as-errors
-          mix format --check-formatted
           mix test
         env:
           MIX_ENV: test
