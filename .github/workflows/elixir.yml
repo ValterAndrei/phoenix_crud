@@ -12,6 +12,8 @@ jobs:
         otp: [22.x]
         elixir: [1.9.x]
         node: [12.x]
+    env:
+      DATABASE_URL: postgres://postgres:postgres@db/app-test
 
     services:
       db:
