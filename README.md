@@ -1,20 +1,22 @@
 ## Configure your environment
-
 ```
 $ chmod +x run.sh
 $ docker-compose build
 ```
 
 ## Run the application
-
 ```
 $ docker-compose up web
 ```
 
 ## Bash
-
 ```
 $ docker-compose run --rm web bash
+```
+
+## Console
+```
+# iex -S mix
 ```
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
