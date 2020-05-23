@@ -1,6 +1,6 @@
 # Elixir + Phoenix
 
-FROM elixir:latest
+FROM elixir:1.9.4
 
 # Install debian packages
 RUN apt-get update
