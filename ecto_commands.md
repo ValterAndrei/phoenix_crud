@@ -14,9 +14,7 @@ alias App.Accounts.User
 
 2. Update
 ```
-User |> Repo.get_by(id: 1)
-|> Ecto.Changeset.change(%{username: "valterandrei", name: "Valter Andrei"})
-|> App.Repo.update()
+User |> Repo.get_by(id: 1) |> Ecto.Changeset.change(%{username: "valterandrei", name: "Valter Andrei"}) |> Repo.update()
 ```
 
 3. Delete
