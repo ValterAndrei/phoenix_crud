@@ -5,6 +5,7 @@ Import modules
 ```
 alias App.Repo
 alias App.Accounts.User
+import Ecto.Query
 ```
 
 1. Create
@@ -18,4 +19,20 @@ User |> Repo.get_by(id: 1) |> Ecto.Changeset.change(%{username: "valterandrei", 
 ```
 
 3. Delete
+```
 User |> Repo.get_by(id: 1) |> Repo.delete()
+```
+
+4. Get the first/last record
+```
+# First
+Repo.one(from x in User, limit: 1)
+
+# Last
+Repo.one(from x in User, order_by: [desc: x.id], limit: 1)
+```
+
+5. Get by username
+```
+Repo.all(from u in "users", where: ilike(u.username, "valterandrei"), select: {u.name, u.username})
+```
