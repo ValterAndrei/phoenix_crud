@@ -27,6 +27,9 @@ User |> Repo.get_by(id: 1) |> Ecto.Changeset.change(%{username: "valterandrei", 
 3. Delete
 ```
 User |> Repo.get_by(id: 1) |> Repo.delete()
+
+# Delete last record
+User |> Repo.all() |> List.last |> Repo.delete()
 ```
 
 4. Get the first/last record
