@@ -8,4 +8,8 @@ defmodule App.Repo do
   def init(_, opts) do
     {:ok, Keyword.put(opts, :url, System.get_env("DATABASE_URL"))}
   end
+
+  def get_all_users do
+    App.Accounts.User |> App.Repo.all()
+  end
 end

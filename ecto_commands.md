@@ -11,10 +11,16 @@ import Ecto.Query
 1. Create
 ```
 %User{} |> User.changeset(%{username: "valterandrei", name: "Valter"}) |> Repo.insert()
+
+# Sem verificação de changeset
+%User{} |> Ecto.Changeset.change(%{username: "valterandrei", name: "Valter"}) |> Repo.insert()
 ```
 
 2. Update
 ```
+User |> Repo.get_by(id: 1) |> User.changeset(%{username: "valterandrei", name: "Black Panther"}) |> Repo.update()
+
+# Sem verificação de changeset
 User |> Repo.get_by(id: 1) |> Ecto.Changeset.change(%{username: "valterandrei", name: "Valter Andrei"}) |> Repo.update()
 ```
 
